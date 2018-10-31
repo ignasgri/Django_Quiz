@@ -14,7 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.conf.urls import patterns, url
+from django.conf.urls import include, patterns, url
+from quiz import urls as quiz_urls
+from django.views.static import serve
+from django.views import static
+from .settings import MEDIA_ROOT
 
 from quiz.views import QuizListView, CategoriesListView,\
     ViewQuizListByCategory, QuizUserProgressView, QuizMarkingList,\
@@ -30,8 +34,11 @@ from quiz.views import QuizListView, CategoriesListView,\
 #     url(r'^admin/', include(admin.site.urls)), 
 #     url(r'', include('blog.urls')), 
 # ]
+
 urlpatterns = patterns('',
-                       url(r'^admin/', admin.site.urls), 
+                        url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
+                        url(r'admin/', include(admin.site.urls)),
+                        url(r'^/', include('quiz.urls')),
                        url(regex=r'^$',
                            view=QuizListView.as_view(),
                            name='quiz_index'),
