@@ -55,9 +55,9 @@
 
 <p class="lead">{{ question.content }}</p>
 <div class="row">
-	<div class="col-sm-12">
+	<div class="col-sm-12 text-center">
 {% if question.figure %}
-    <img src="{{ question.figure.url }}" style="max-width:100%;" alt="{{ question.content }}" />
+    <img src="{{ question.figure.url }}" style="width:200px" alt="{{ question.content }}" />
 {% endif %}
 </div></div>
 <form action="" method="POST">{% csrf_token %}
