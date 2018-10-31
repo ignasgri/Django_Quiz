@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="row">
-    <div class="container text-center">
+    <div class="container">
 <h2>{{ quiz.title }}</h2>
 <h3>{% trans "Category" %}: {{ quiz.category }}</h3>
 {% if quiz.single_attempt %}
@@ -17,7 +17,7 @@
 </div>
 </div>
   <div class="row">
-    <div class="container text-center">
+    <div class="container">
   <a href="{% url 'quiz_question' quiz_name=quiz.url %}">
 	{% trans "Start quiz" %}
   </a>
