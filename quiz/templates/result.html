@@ -34,18 +34,19 @@
 	  <small class="muted">{% trans "Exam title" %}: </small>
 	  <strong>{{ quiz.title }}</strong></p>
 
+    {% if quiz.pass_mark %}
     <hr>
-    <p class="lead" style="font-weight:800;font-size:34px;">{{ sitting.result_message }}</p>
+          <p class="lead">{{ sitting.result_message }}</p>
     <hr>
+  
+    {% endif %}
+
 
 	<p class="lead">
 	  {% trans "You answered" %} {{ score }} {% trans "questions correctly out of" %} {{ max_score }}, {% trans "giving you" %} {{ percent }} {% trans "percent correct" %}
 	</p>
 
-	{% if quiz.pass_mark %}
 
-
-	{% endif %}
 
 	<p>{% trans "Review the questions below and try the exam again in the future"%}.</p>
 
