@@ -1,0 +1,1 @@
+c:\Users\ignas\virtualenvs\django_quiz\Scripts\activate
